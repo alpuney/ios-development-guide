@@ -34,8 +34,9 @@ Main View {
 Externally injected values that the view reads from its environment.
 
 ```swift
-@Environment(\.dismiss) private var dismiss
-@Environment(\.modelContext) private var modelContext
+@Environment(\.dismiss) private var dismiss 
+@Environment(\.modelContext) private var modelContext 
+@EnvironmentObject var router: Router // deprecated: prefer @Environment with @Observable 
 @Query(sort: \Item.date, order: .reverse) private var items: [Item]
 ```
 
@@ -44,9 +45,12 @@ Externally injected values that the view reads from its environment.
 View-owned mutable state, including persisted and parent-driven bindings.
 
 ```swift
-@State private var title = ""
-@AppStorage("isDarkMode") private var isDarkMode = false
-@FocusState private var isTitleFocused: Bool
+@State private var title = "" 
+@AppStorage("isDarkMode") private var isDarkMode = false 
+@SceneStorage("selectedTab") private var selectedTab = 0 
+@FocusState private var isTitleFocused: Bool 
+@GestureState private var dragOffset: CGSize = .zero 
+@Namespace private var animation 
 @Binding var isPresented: Bool
 ```
 
@@ -55,6 +59,7 @@ View-owned mutable state, including persisted and parent-driven bindings.
 Stored properties only. These are non-reactive values passed in or defined at init time.
 
 ```swift
+@ScaledMetric(relativeTo: .body) private var iconSize: CGFloat = 24
 let category: Category
 private let maxItemCount = 50
 ```
