@@ -8,11 +8,11 @@ A style guide for organizing SwiftUI view files consistently across the project.
 
 ```
 Main View {
-    // MARK: - Dependencies
-    // MARK: - State
-    // MARK: - Properties
-    // MARK: - Initialization
-    // MARK: - Body
+    // MARK: Dependencies
+    // MARK: State
+    // MARK: Properties
+    // MARK: Initialization
+    // MARK: Body
 }
 
 // MARK: - Computed Properties (extension)
